@@ -4,13 +4,13 @@ import { injectable } from 'inversify';
 import {ComponentCategory, IPages, InspectorControlEnum} from "@libreforge/libreforge-framework-shared"
 import { IComponent, IComponents } from "@libreforge/libreforge-framework-shared"
 import { VscGithubAction } from "react-icons/vsc";
-import OnPageLoadActionComponent from './OnPageLoadActionComponent';
 import { StandardComponentProvider } from '@libreforge/libreforge-framework';
+import AutomaticActionExecutorComponent from './AutomaticActionComponent';
 
 @injectable()
-export class OnPageLoadActionProvider extends StandardComponentProvider {
+export class AutomaticActionProvider extends StandardComponentProvider {
 
-  type = 'OnPageLoad';
+  type = 'Automatic Action';
 
   getCategory(): ComponentCategory {
     return "tools";
@@ -30,7 +30,7 @@ export class OnPageLoadActionProvider extends StandardComponentProvider {
       wrapperComponent?: ReactElement, wrapperContainer?: ReactElement): ReactNode {
 
     return (
-      <OnPageLoadActionComponent 
+      <AutomaticActionExecutorComponent 
         componentId={component.id} pageComponents={pageComponents} 
         designMode={designMode} pages={pages} collectionRefIdx={collectionRefIdx}
         wrapperComponent={wrapperComponent} wrapperContainer={wrapperContainer}
@@ -44,6 +44,14 @@ export class OnPageLoadActionProvider extends StandardComponentProvider {
       {
         control: InspectorControlEnum.ActionGroupControl,
         props: { name: 'actionGroup', label: 'Actions' },
+      },      
+      {
+        control: InspectorControlEnum.SwitchControl,
+        props: { name: 'isJustOnce', label: 'Just Once?' },
+      },
+      {
+        control: InspectorControlEnum.TextControl,
+        props: { name: 'seconds', label: 'Every (X) sec' },
       },      
     ];
   }

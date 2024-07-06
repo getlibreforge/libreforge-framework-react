@@ -1,2 +1,2 @@
 export * from "./ResourceLoadPageAction"
-export * from "./OnPageLoadAction"
+export * from "./AutomaticAction"

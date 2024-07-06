@@ -26,7 +26,7 @@ import { PasswordInputProvider } from './components/PasswordInput';
 import { LocalDateProvider } from './components/LocalDate';
 import { VariableTextProvider, TextProvider } from './components/Label';
 import { ComponentForEachProvider } from './components/Tools/ComponentForEach';
-import { OnPageLoadActionProvider, ResourceLoadPageActionProvider } from './components/Tools/PageActions';
+import { AutomaticActionProvider, ResourceLoadPageActionProvider } from './components/Tools/PageActions';
 import { BusinessRulesProvider } from './components/Tools/BusinessRules';
 import { ComponentProvider, SYMBOL_COMPONENT_PROVIDER } from '@libreforge/libreforge-framework';
 
@@ -62,7 +62,7 @@ export function bindProviders(container: Container) {
 
   /* Page Actions */
   container.bind<ComponentProvider>(SYMBOL_COMPONENT_PROVIDER).to(ResourceLoadPageActionProvider);
-  container.bind<ComponentProvider>(SYMBOL_COMPONENT_PROVIDER).to(OnPageLoadActionProvider);
+  container.bind<ComponentProvider>(SYMBOL_COMPONENT_PROVIDER).to(AutomaticActionProvider);
   container.bind<ComponentProvider>(SYMBOL_COMPONENT_PROVIDER).to(BusinessRulesProvider);
 
   container.bind<ComponentProvider>(SYMBOL_COMPONENT_PROVIDER).to(FormProvider);
