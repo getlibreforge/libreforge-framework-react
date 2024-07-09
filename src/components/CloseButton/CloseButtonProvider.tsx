@@ -6,7 +6,7 @@ import {ComponentCategory, IPages, InspectorControlEnum} from "@libreforge/libre
 import { IComponent, IComponents } from "@libreforge/libreforge-framework-shared"
 import { AiOutlineCloseSquare } from "react-icons/ai";
 import { StandardComponentProvider } from '@libreforge/libreforge-framework';
-import NativeComponentRenderer from '@libreforge/libreforge-framework/dist/components/NativeComponentRenderer';
+import NativeComponentRenderer from '../NativeComponentRenderer';
 
 @injectable()
 export class CloseButtonProvider extends StandardComponentProvider {

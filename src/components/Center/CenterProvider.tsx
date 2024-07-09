@@ -6,7 +6,7 @@ import {ComponentCategory, IPages, InspectorControlEnum} from "@libreforge/libre
 import { IComponent, IComponents } from "@libreforge/libreforge-framework-shared"
 import { PiAlignCenterHorizontalSimple } from 'react-icons/pi';
 import { StandardComponentProvider } from '@libreforge/libreforge-framework';
-import ContainerComponent from '@libreforge/libreforge-framework/dist/components/ContainerComponent';
+import ContainerComponent from '../ContainerComponent';
 
 @injectable()
 export class CenterProvider extends StandardComponentProvider {

@@ -1,5 +1,5 @@
 import { Text } from '@chakra-ui/react';
-import { cleanupCustomComponentProps, getCurrentPageState, getExpressionVariableName, replaceVariable } from '@libreforge/libreforge-framework';
+import { cleanupCustomComponentProps, getCurrentPageState, getExpressionVariableNames, replaceVariable } from '@libreforge/libreforge-framework';
 import { forwardRef } from 'react';
 import { useSelector } from 'react-redux';
 
@@ -18,9 +18,10 @@ const VariableTextComponent = forwardRef((props: { componentId: string, children
 
   if (true === props.designMode) {
     targetText = props.children;
+
   } else {
-    const variable = getExpressionVariableName(props.children);
-    targetText = replaceVariable(props.children, variable, currentPageState[variable]);
+    const variables = getExpressionVariableNames(props.children);
+    targetText = replaceVariable(props.children, variables, currentPageState);
   }
 
   const elementProps = cleanupCustomComponentProps(props);

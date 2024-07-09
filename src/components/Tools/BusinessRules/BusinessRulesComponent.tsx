@@ -31,7 +31,7 @@ const BusinessRulesComponent = forwardRef((props: { componentId: string,
           const ruleNames = Object.keys(rules);
           for (let i=0; i < ruleNames.length; i++) {
             const businessRule = rules[ruleNames[i]];
-            new DynamicScriptExecutor().execute(businessRule.script, dispatch, currentPageState, sharedState, container);
+            new DynamicScriptExecutor().execute(businessRule.script, dispatch, currentPageState, sharedState, container, {});
           }
 
           dispatch.app.setLastBusinessRulesExecutionTime({ timespamp: new Date().getTime() });

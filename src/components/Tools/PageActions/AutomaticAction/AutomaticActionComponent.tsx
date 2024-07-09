@@ -15,6 +15,7 @@ const AutomaticActionExecutorComponent = forwardRef((props: { componentId: strin
   const isJustOnce = component.props.isJustOnce;
 
   const [counter, setCounter] = useState(0);
+
   const dispatch = useDispatch();
   const router = useNavigate();
   const snackbar = useSnackbar();
