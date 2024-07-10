@@ -2,15 +2,19 @@ import { Button } from '@chakra-ui/react';
 import { iconsList } from '../../iconsList';
 import { forwardRef } from 'react';
 import { IComponents, IPages } from '@libreforge/libreforge-framework-shared';
-import { cleanupCustomComponentProps, useActionHandlers, usePropsOverrideByComponentRef } from '@libreforge/libreforge-framework';
+import { cleanupCustomComponentProps, useActionHandlers, usePropsOverrideByComponentRef, useSnackbar } from '@libreforge/libreforge-framework';
+import { useNavigate } from "react-router-dom";
 
 const ButtonComponent = forwardRef((props: { componentId: string, pages: IPages, designMode: boolean, 
     pageComponents: IComponents, componentPage: string, collectionRefIdx: number | undefined }, ref) => {
 
+  const router = useNavigate();
+  const snackbar = useSnackbar();
+
   let targetProps: any = props;
 
   const actionGroup = props.pageComponents[props.componentId].actionGroup;
-  targetProps = useActionHandlers(targetProps, actionGroup);  
+  targetProps = useActionHandlers(targetProps, actionGroup, router, snackbar);  
   targetProps = usePropsOverrideByComponentRef(props.componentId, targetProps, props.designMode);
 
   if (targetProps.leftIcon) {
